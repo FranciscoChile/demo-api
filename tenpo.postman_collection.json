@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "b10cdf20-dec1-4d5c-93f1-a8359ad897e6",
+		"name": "tenpo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37009588"
+	},
+	"item": [
+		{
+			"name": "average",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/average?num1=4&num2=44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"average"
+					],
+					"query": [
+						{
+							"key": "num1",
+							"value": "4"
+						},
+						{
+							"key": "num2",
+							"value": "44"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
