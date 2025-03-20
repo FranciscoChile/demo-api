@@ -17,15 +17,11 @@ luego
 ./Makefile
 ```
 
-2. Ejecutar Docker build
+2. Ejecutar Docker compose (Docker crea la base datos, Spring boot crea la tabla)
 ```
-docker build -t demo-api .
+docker-compose up -d
 ```
 
-3. Ejecutar Docker run
-```
-docker run -d -p 8080:8080 demo-api
-```
 4. Para usar el archivo Postman se debe apuntar a la IP local, no usar localhost.
 
 

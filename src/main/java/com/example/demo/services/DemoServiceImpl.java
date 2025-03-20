@@ -31,14 +31,14 @@ public class DemoServiceImpl implements DemoService {
     public DemoServiceImpl(@Value("${mock.url}") String mockUrl,
                            @Value("${cache.expiration.minutes}") String expiration,
                            GetValueGateway getValueGateway,
-                           DemoRepository demoRepository, AverageToAverageDTOMapping averageToAverageDTOMapping
+                           DemoRepository demoRepository, AverageToAverageDTOMapping averageToAverageDTOMapping, CachePercentage cachePercentage
     ) {
         this.getValueGateway = getValueGateway;
         this.demoRepository = demoRepository;
         this.mockUrl = mockUrl;
         this.expiration = expiration;
         this.averageToAverageDTOMapping = averageToAverageDTOMapping;
-        this.cachePercentage = new CachePercentage();
+        this.cachePercentage = cachePercentage;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class DemoServiceImpl implements DemoService {
         try {
             percentage = getValueGateway.execute();
             statusResponse = "OK";
-        } catch (Exception e) {
+        } catch (DataNotFoundException e) {
             statusResponse = "ERROR";
             if (cachePercentage.getExpiration() != null) {
                 percentage = cachePercentage.getValue();

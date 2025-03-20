@@ -1,6 +1,7 @@
 package com.example.demo.gateways;
 
 import com.example.demo.dtos.MockDTO;
+import com.example.demo.exceptions.DataNotFoundException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class GetPercentageFromApiGateway implements GetValueGateway {
     private String mockUrl;
 
     @Override
-    public Long execute() {
+    public Long execute() throws DataNotFoundException {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<MockDTO> response = restTemplate.getForEntity(mockUrl, MockDTO.class);
         return Objects.requireNonNull(response.getBody()).getNumber();
