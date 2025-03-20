@@ -6,6 +6,7 @@
 
 # Prerequisitos
 1. Tener Java 21 Corretto instalado
+2. Docker Desktop
 
 # Generación ejecutable y despliegue
 1. Ejecutar archivo Makefile, primero dar permisos de ejecución (asumiendo máquina Linux)
